@@ -1,28 +1,26 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit ToDo Item</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
 
-<html>
+  <div class="container py-5">
+    <h2 class="mb-4 text-center">✏️ Edit ToDo Item</h2>
 
-    <head>
-        <title>Edit <%- todo %></title>
-        <style>
-            a {
-                text-decoration: none;
-                color: black;
-            }
+    <form action="/edit/<%= index %>" method="POST" class="card p-4 shadow-sm">
+      <div class="mb-3">
+        <label for="item" class="form-label">Task</label>
+        <input type="text" id="item" name="item" class="form-control" value="<%= item %>" required>
+      </div>
+      <div class="d-flex justify-content-between">
+        <a href="/" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-success">Save Changes</button>
+      </div>
+    </form>
+  </div>
 
-        </style>
-    </head>
-
-    <body>
-        <h1>Edit <%- todo %>:</h1>
-        <form action="/todo/edit/<%= todoIdx %>" method="post">
-            <p>
-                <label for="editTodo">Change to:</label>
-                <input type="hidden" name="_method" value="PUT">
-                <input type="text" name="editTodo" id="editTodo" autofocus placeholder="<%- todo %>" />
-                <input type="submit" value="Save" />
-            </p>
-        </form>
-    </body>
-
+</body>
 </html>
